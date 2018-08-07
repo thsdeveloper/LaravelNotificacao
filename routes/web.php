@@ -17,4 +17,10 @@ Route::get('/', function () {
 
 Auth::routes();
 
+Route::get('/members', 'MembersController@index');
+
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/clientes', 'CustomerController@getClientes');
+Route::post('/cadastrar/cliente', 'CustomerController@insert');
+Route::post('/cadastrar/excluir', 'CustomerController@delete');
+Route::post('/cadastrar/editar', 'CustomerController@edit');

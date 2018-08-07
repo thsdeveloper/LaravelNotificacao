@@ -9,13 +9,14 @@ require('./bootstrap');
 
 window.Vue = require('vue');
 
-import ElementUI from 'element-ui'
-import 'element-ui/lib/theme-chalk/index.css'
-import locale from 'element-ui/lib/locale/lang/pt-br'
-Vue.use(ElementUI, { locale })
-
 import VueTheMask from 'vue-the-mask'
 Vue.use(VueTheMask)
+
+import Vue from 'vue'
+import Vuetify from 'vuetify'
+import 'vuetify/dist/vuetify.min.css'
+import 'material-design-icons-iconfont/dist/material-design-icons.css'
+Vue.use(Vuetify)
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -27,5 +28,14 @@ Vue.component('example-component', require('./components/ExampleComponent.vue'))
 Vue.component('customers', require('./components/Customers.vue'));
 
 const app = new Vue({
-    el: '#app'
+    el: '#app',
+    data: () => ({
+        drawer: null,
+        items: [
+            { icon: 'library_music', text: 'Ministério de Louvor' },
+        ]
+    }),
+    props: {
+        source: String
+    }
 });
